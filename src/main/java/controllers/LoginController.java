@@ -9,4 +9,8 @@ public class LoginController {
     public String home(){
         return "index";
     }
+    @RequestMapping("/loginAdmin")
+    public String loginAdmin(){
+        return "adminLogin";
+    }
 }

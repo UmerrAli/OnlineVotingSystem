@@ -20,27 +20,11 @@
         .form-group label {
             font-weight: bold;
         }
-        .btn-primary {
-            background-color: #007bff;
-            border-color: #007bff;
-        }
-        .btn-primary:hover {
-            background-color: #0069d9;
-            border-color: #0062cc;
-        }
-        .btn-admin {
-            background-color: #dc3545;
-            border-color: #dc3545;
-        }
-        .btn-admin:hover {
-            background-color: #c82333;
-            border-color: #bd2130;
-        }
     </style>
 </head>
 <body>
 <div class="container">
-    <h2>Login</h2>
+    <h2>Voter Login</h2>
     <form>
         <div class="form-group">
             <label for="voterName">Voter Name:</label>
@@ -50,11 +34,13 @@
             <label for="voterPassword">Voter Password:</label>
             <input type="password" class="form-control" id="voterPassword" placeholder="Enter voter password" required>
         </div>
+        <br>
         <button type="submit" class="btn btn-primary btn-block">Login</button>
-        <button type="submit" class="btn btn-admin btn-block">Login as Admin</button>
+        <a class="btn btn-primary btn-block" href="/loginAdmin">Login as Admin</a>
     </form>
-</div>
 
+
+</div>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
 </html>
