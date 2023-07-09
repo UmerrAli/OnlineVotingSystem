@@ -34,6 +34,8 @@
         <property name="annotatedClasses">
             <list>
                 <value>Models.Voter</value>
+                <value>Models.Poll</value>
+                <value>Models.Option</value>
             </list>
         </property>
     </bean>

@@ -65,13 +65,13 @@
             <td>${voter.voterName}</td>
             <td>${voter.voterPassword}</td>
             <td>
-                <a class="btn btn-danger" href="/admin/deleteVoter/${voter.voterId}">Delete</a>
+                <a class="btn btn-danger" href="/voter/deleteVoter/${voter.voterId}">Delete</a>
             </td>
         </tr>
         </c:forEach>
         </tbody>
     </table>
-    <a class="btn btn-primary add-button" href="/admin/registerVoter">Add More Voters</a>
+    <a class="btn btn-primary add-button" href="/voter/add">Add More Voters</a>
 </div>
 
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>

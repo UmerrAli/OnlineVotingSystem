@@ -25,14 +25,14 @@
 <body>
 <div class="container">
   <h2>Admin Login</h2>
-  <form>
+  <form action="/admin/home" method="post">
     <div class="form-group">
       <label for="adminUsername">Username:</label>
-      <input type="text" class="form-control" id="adminUsername" placeholder="Enter admin username" required>
+      <input type="text" class="form-control" id="adminUsername" placeholder="Enter admin username" required name="username">
     </div>
     <div class="form-group">
       <label for="adminPassword">Admin Password:</label>
-      <input type="password" class="form-control" id="adminPassword" placeholder="Enter admin password" required>
+      <input type="password" class="form-control" id="adminPassword" placeholder="Enter admin password" required name="password">
     </div>
     <br>
     <button type="submit" class="btn btn-primary btn-block">Login</button>
