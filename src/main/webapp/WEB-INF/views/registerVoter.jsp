@@ -38,7 +38,7 @@
 <body>
 <div class="container">
     <h2>Add Voter</h2>
-    <form action="/addVoter" method="post">
+    <form action="/admin/addVoter" method="post">
         <div class="form-group">
             <label for="voterName">Voter Name:</label>
             <input type="text" class="form-control" id="voterName" placeholder="Enter voter name" required name="voterName">
@@ -47,8 +47,9 @@
             <label for="voterPassword">Voter Password:</label>
             <input type="password" class="form-control" id="voterPassword" placeholder="Enter voter password" required name="voterPassword">
         </div>
-        <button type="submit" class="btn btn-primary btn-block">Add Voter</button>
+        <button type="submit" class="btn btn-primary btn-block mt-3">Add Voter</button>
     </form>
+    <a class="btn btn-outline-primary btn-block mt-3" href="/admin/displayVoters">Back</a>
 </div>
 
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>

@@ -36,7 +36,7 @@
         </div>
         <br>
         <button type="submit" class="btn btn-primary btn-block">Login</button>
-        <a class="btn btn-primary btn-block" href="/loginAdmin">Login as Admin</a>
+        <a class="btn btn-primary btn-block" href="/admin/login">Login as Admin</a>
     </form>
 
 

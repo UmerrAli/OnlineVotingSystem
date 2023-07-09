@@ -35,8 +35,8 @@
       <input type="password" class="form-control" id="adminPassword" placeholder="Enter admin password" required>
     </div>
     <br>
-    <button type="submit" class="btn btn-primary btn-block">Admin Login</button>
-    <a href="/" class="btn btn-primary btn-block">Login as Voter</a>
+    <button type="submit" class="btn btn-primary btn-block">Login</button>
+    <a href="/voter/login" class="btn btn-primary btn-block">Login as Voter</a>
   </form>
 </div>
 
