@@ -31,7 +31,7 @@ public class AdminController {
     public String home(@RequestParam("username") String username, @RequestParam("password") String password, Model model, HttpServletRequest request){
         HttpSession session = request.getSession();
         if(username.equals("admin") && password.equals("admin")) {
-            List<Poll> polls = pollDAO.displayPolls();
+            List<Poll> polls = pollDAO.getAll();
             model.addAttribute("polls",polls);
             return "adminHomePage";
         }

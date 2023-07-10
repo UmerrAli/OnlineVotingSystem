@@ -3,7 +3,7 @@ package Models;
 import javax.persistence.*;
 
 @Entity
-public class Voter {
+public class Voter implements Models {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int voterId;

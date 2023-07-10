@@ -87,7 +87,7 @@
                 </td>
                 <td>${poll.winner}</td>
                 <td>
-                    <a class="btn btn-primary btn-sm add-options-btn" href="/option/add/${poll.pollId}">Add Options</a>
+                    <a class="btn btn-primary btn-sm add-pollOption-btn" href="/pollOption/add/${poll.pollId}">Add Options</a>
                     <button class="btn btn-primary btn-sm">Calculate Result and Inactivate</button>
                     <button class="btn btn-danger btn-sm">Delete</button>
                 </td>

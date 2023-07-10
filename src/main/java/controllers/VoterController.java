@@ -19,7 +19,7 @@ public class VoterController {
 
     @RequestMapping("/home")
     public String Home() {
-        /* TO-DO */
+//        TODO
         return null;
     }
 
@@ -30,7 +30,7 @@ public class VoterController {
 
     @RequestMapping("/displayAll")
     public String displayVoters(Model model) {
-        List<Voter> voters = voterDAO.displayVoters();
+        List<Voter> voters = voterDAO.getAll();
         model.addAttribute("voters", voters);
         return "displayVoters";
     }
@@ -42,7 +42,7 @@ public class VoterController {
 
     @RequestMapping("/handleForm")
     public String addVoterFormHandler(@ModelAttribute Voter voter) {
-        voterDAO.saveVoter(voter);
+        voterDAO.save(voter);
         return "redirect:displayAll";
     }
 

@@ -4,15 +4,13 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-public class Poll {
+public class Poll implements Models {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int pollId;
     private String pollName;
     private boolean status;
     private String Winner;
-//    @OneToMany(mappedBy = "Option")
-//    private List<Option> option;
 
     public int getPollId() {
         return pollId;
@@ -45,4 +43,5 @@ public class Poll {
     public void setWinner(String winner) {
         Winner = winner;
     }
+
 }

@@ -1,14 +1,15 @@
 package DAO;
 
+import Models.Models;
 import Models.Voter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 
 @Component
@@ -16,16 +17,25 @@ public class VoterDAO {
     @Autowired
     private HibernateTemplate hibernateTemplate;
     @Transactional
-    public void saveVoter(Voter voter){
+    public void save(Models models){
+        Voter voter = (Voter) models;
         this.hibernateTemplate.save(voter);
     }
-    public List<Voter> displayVoters(){
+    public List<Voter> getAll(){
        return this.hibernateTemplate.loadAll(Voter.class);
+    }
+    public Voter get(int id){
+        return (Voter) this.hibernateTemplate.get(Voter.class,id);
     }
     @Transactional
     public void delete(int id){
         Voter voter = (Voter) this.hibernateTemplate.load(Voter.class,id);
         this.hibernateTemplate.delete(voter);
+    }
+    @Transactional
+    public void update(int id,Models models){
+        Voter voter = (Voter) models;
+//        TODO
     }
 
 }

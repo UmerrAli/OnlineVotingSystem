@@ -35,7 +35,7 @@
             <list>
                 <value>Models.Voter</value>
                 <value>Models.Poll</value>
-                <value>Models.Option</value>
+                <value>Models.PollOption</value>
             </list>
         </property>
     </bean>

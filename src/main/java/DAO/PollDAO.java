@@ -1,5 +1,6 @@
 package DAO;
 
+import Models.Models;
 import Models.Poll;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.HibernateTemplate;
@@ -11,23 +12,33 @@ import java.util.List;
 
 
 @Component
-public class PollDAO {
+public class PollDAO{
     @Autowired
     private HibernateTemplate hibernateTemplate;
+
     @Transactional
-    public void save(Poll poll){
+    public void save(Models models) {
+        Poll poll = (Poll) models;
         this.hibernateTemplate.save(poll);
     }
-    public Poll poll(int id){
-        return (Poll) this.hibernateTemplate.get(Poll.class,id);
+
+    public Poll get(int id) {
+        return (Poll) this.hibernateTemplate.get(Poll.class, id);
     }
-    public List<Poll> displayPolls(){
+
+    public List<Poll> getAll() {
         return this.hibernateTemplate.loadAll(Poll.class);
     }
+
     @Transactional
-    public void delete(int id){
-        Poll poll = (Poll) this.hibernateTemplate.load(Poll.class,id);
+    public void delete(int id) {
+        Poll poll = (Poll) this.hibernateTemplate.load(Poll.class, id);
         this.hibernateTemplate.delete(poll);
+    }
+
+    public void update(int id, Models models) {
+        Poll poll = (Poll) models;
+//        TODO
     }
 
 }
