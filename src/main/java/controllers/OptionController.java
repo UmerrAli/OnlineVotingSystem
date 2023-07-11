@@ -24,20 +24,16 @@ public class OptionController {
     @RequestMapping("/add/{id}")
     public String addOptionPage(@PathVariable("id") int id,Model model) {
         Poll poll = pollDAO.get(id);
+        List<PollOption> pollOptions = optionDAO.getOptionByPollId(id);
         model.addAttribute("poll",poll);
+        model.addAttribute("options",pollOptions);
         return "addOption";
     }
     @RequestMapping("/handleForm")
     public String addOptionHandleForm(@ModelAttribute PollOption pollOption, @RequestParam("pollId") int id) {
         pollOption.setPollId(id);
         optionDAO.save(pollOption);
-        return "redirect:testController";
+        return "redirect:add/"+id;
     }
 
-    @RequestMapping("/displayAll")
-    public String displayOptions(Model model) {
-        List<PollOption> pollOption = optionDAO.getAll();
-        model.addAttribute("voters", pollOption);
-        return "displayOptions";
-    }
 }
