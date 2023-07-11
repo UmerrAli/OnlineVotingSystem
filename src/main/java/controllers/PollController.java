@@ -1,10 +1,13 @@
 package controllers;
 
+import Authentication.Authentication;
 import DAO.PollDAO;
 import Models.Poll;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -23,6 +26,14 @@ public class PollController {
         poll.setWinner(null);
         pollDAO.save(poll);
         return "redirect:/admin/home?username=admin&password=admin";
+    }
+    @RequestMapping("/deletePoll/{id}")
+    public String deletePoll(@PathVariable("id") int id, HttpServletRequest request) {
+        if(Authentication.authenticate(request).equals("admin")){
+            pollDAO.delete(id);
+            return "redirect:/admin/home";
+        }
+        return "redirect:/admin/login";
     }
 
 }
