@@ -42,4 +42,12 @@ public class AdminController {
         //Can also save admin to database
         return "redirect:/admin/home";
     }
+    @RequestMapping("/logout")
+    public String formHandler(HttpServletRequest request){
+        HttpSession session = request.getSession();
+        session.removeAttribute("username");
+        session.removeAttribute("password");
+        session.removeAttribute("role");
+        return "redirect:/admin/login";
+    }
 }
