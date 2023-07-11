@@ -1,7 +1,9 @@
 package controllers;
 
 import Authentication.Authentication;
+import DAO.PollDAO;
 import DAO.VoterDAO;
+import Models.Poll;
 import Models.Voter;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,11 +20,13 @@ import java.util.List;
 public class VoterController {
     @Autowired
     private VoterDAO voterDAO;
-
+    @Autowired
+    private PollDAO pollDao;
     @RequestMapping("/home")
-    public String Home() {
-//        TODO
-        return null;
+    public String Home(Model model) {
+        List<Poll> polls = pollDao.getAll();
+        model.addAttribute("polls",polls);
+        return "voterHome";
     }
 
     @RequestMapping("/login")
