@@ -25,16 +25,21 @@ public class AdminController {
         return "adminLogin";
     }
     @RequestMapping ("/home")
-    public String home(@RequestParam("username") String username, @RequestParam("password") String password, Model model, HttpServletRequest request){
-        HttpSession session = request.getSession();
-        session.setAttribute("username",username);
-        session.setAttribute("password",password);
-        session.setAttribute("role","admin");
-        if(Authentication.authenticate(request)) {
+    public String home(HttpServletRequest request,Model model){
+        if(Authentication.authenticate(request).equals("admin")) {
             List<Poll> polls = pollDAO.getAll();
             model.addAttribute("polls",polls);
             return "adminHomePage";
         }
         return "redirect:login";
+    }
+    @RequestMapping("/handleForm")
+    public String formHandler(@RequestParam("username") String username, @RequestParam("password") String password, Model model , HttpServletRequest request){
+        HttpSession session = request.getSession();
+        session.setAttribute("username",username);
+        session.setAttribute("password",password);
+        session.setAttribute("role","admin");
+        //Can also save admin to database
+        return "redirect:/admin/home";
     }
 }

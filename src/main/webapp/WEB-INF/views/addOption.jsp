@@ -83,15 +83,16 @@
         </c:forEach>
         </tbody>
     </table>
+    <br>
     <form action="/pollOption/handleForm" method="post">
         <div class="form-group">
             <label for="optionName">Add Option</label>
             <input type="text" class="form-control" id="optionName" placeholder="Enter Option Name" required name="optionName" style="width: 200px;">
         </div>
         <input type="hidden" required name="pollId" value="${poll.pollId}">
-        <button type="submit" class="btn btn-primary btn-block">Add</button>
+        <button type="submit" class="btn btn-primary">Add</button>
+        <a href="/admin/home" class="btn btn-outline-primary">Back</a>
     </form>
-    <a href="#" class="btn btn-outline-primary  back-button">Back</a>
 </div>
 
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>

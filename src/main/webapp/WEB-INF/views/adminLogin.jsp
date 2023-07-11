@@ -25,7 +25,7 @@
 <body>
 <div class="container">
   <h2>Admin Login</h2>
-  <form action="/admin/home" method="post">
+  <form action="/admin/handleForm" method="post">
     <div class="form-group">
       <label for="adminUsername">Username:</label>
       <input type="text" class="form-control" id="adminUsername" placeholder="Enter admin username" required name="username">

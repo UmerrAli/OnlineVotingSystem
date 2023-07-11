@@ -1,14 +1,16 @@
 package controllers;
 
+import Authentication.Authentication;
 import DAO.VoterDAO;
 import Models.Voter;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+import org.springframework.web.bind.annotation.RequestMethod;
 import java.util.List;
 
 @Controller
@@ -29,26 +31,38 @@ public class VoterController {
     }
 
     @RequestMapping("/displayAll")
-    public String displayVoters(Model model) {
-        List<Voter> voters = voterDAO.getAll();
-        model.addAttribute("voters", voters);
-        return "displayVoters";
+    public String displayVoters(Model model, HttpServletRequest request) {
+        if(Authentication.authenticate(request).equals("admin")){
+            List<Voter> voters = voterDAO.getAll();
+            model.addAttribute("voters", voters);
+            return "displayVoters";
+        }
+        return "redirect:/admin/login";
     }
 
     @RequestMapping("/add")
-    public String registerVotersPage() {
-        return "addVoter";
+    public String registerVotersPage(HttpServletRequest request) {
+        if(Authentication.authenticate(request).equals("admin")){
+            return "addVoter";
+        }
+        return "redirect:/admin/login";
     }
 
-    @RequestMapping("/handleForm")
-    public String addVoterFormHandler(@ModelAttribute Voter voter) {
-        voterDAO.save(voter);
-        return "redirect:displayAll";
+    @RequestMapping(value = "/handleForm",method = RequestMethod.POST)
+    public String addVoterFormHandler(@ModelAttribute Voter voter, HttpServletRequest request) {
+        if(Authentication.authenticate(request).equals("admin")){
+            voterDAO.save(voter);
+            return "redirect:displayAll";
+        }
+        return "redirect:/admin/login";
     }
 
     @RequestMapping("/deleteVoter/{id}")
-    public String deleteVoter(@PathVariable("id") int id) {
-        voterDAO.delete(id);
-        return "redirect:/voter/displayAll";
+    public String deleteVoter(@PathVariable("id") int id, HttpServletRequest request) {
+        if(Authentication.authenticate(request).equals("admin")){
+            voterDAO.delete(id);
+            return "redirect:/voter/displayAll";
+        }
+        return "redirect:/admin/login";
     }
 }
