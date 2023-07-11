@@ -71,7 +71,9 @@
         </c:forEach>
         </tbody>
     </table>
-    <a class="btn btn-primary add-button" href="/voter/add">Add More Voters</a>
+    <br>
+    <a class="btn btn-primary mt-5" href="/voter/add">Add More Voters</a>
+    <a class="btn btn-outline-primary mt-5" href="/admin/home">Back</a>
 </div>
 
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
