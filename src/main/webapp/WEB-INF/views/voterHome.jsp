@@ -66,7 +66,7 @@
                 <td></td>
                 <td>
 <%--                    <c:if test="${not poll.voted}">--%>
-                        <button class="btn btn-primary">Vote</button>
+                        <a class="btn btn-primary" href="/pollOption/toVote/${poll.pollId}">Vote</a>
 <%--                    </c:if>--%>
                 </td>
             </tr>
