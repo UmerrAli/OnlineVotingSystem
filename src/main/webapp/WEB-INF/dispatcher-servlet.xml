@@ -8,6 +8,7 @@
 <context:component-scan base-package="controllers"/>
 <context:component-scan base-package="DAO"/>
 <context:component-scan base-package="Models"/>
+<context:component-scan base-package="Authentication"/>
 
     <tx:annotation-driven/>
 
@@ -29,7 +30,7 @@
             <props>
                 <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
                 <prop key="hibernate.show_sql">true</prop>
-                <prop key="hibernate.hbm2ddl.auto">create</prop>
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
             </props>
         </property>
         <property name="annotatedClasses">
@@ -37,6 +38,7 @@
                 <value>Models.Voter</value>
                 <value>Models.Poll</value>
                 <value>Models.PollOption</value>
+                <value>Models.VoteCount</value>
             </list>
         </property>
     </bean>
