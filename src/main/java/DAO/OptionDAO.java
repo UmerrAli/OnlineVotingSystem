@@ -39,7 +39,7 @@ public class OptionDAO {
             @Override
             public PollOption mapRow(ResultSet rs, int rowNum) throws SQLException {
                 PollOption pollOption = new PollOption();
-                pollOption.setPollId(rs.getInt("optionId"));
+                pollOption.setOptionId(rs.getInt(1));
                 pollOption.setOptionName(rs.getString("optionName"));
                 return pollOption;
             }

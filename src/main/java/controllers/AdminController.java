@@ -19,6 +19,8 @@ public class AdminController {
 
     @Autowired
     private PollDAO pollDAO;
+    @Autowired
+    private Authentication authentication;
 
     @RequestMapping("/login")
     public String loginAdmin(){
@@ -26,7 +28,7 @@ public class AdminController {
     }
     @RequestMapping ("/home")
     public String home(HttpServletRequest request,Model model){
-        if(Authentication.authenticate(request).equals("admin")) {
+        if(authentication.authenticate(request).equals("admin")) {
             List<Poll> polls = pollDAO.getAll();
             model.addAttribute("polls",polls);
             return "adminHomePage";

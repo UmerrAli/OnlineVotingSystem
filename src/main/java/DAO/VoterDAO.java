@@ -37,5 +37,13 @@ public class VoterDAO {
         Voter voter = (Voter) models;
 //        TODO
     }
-
+    public int getVoterId(String nama,String passwrod){
+        List<Voter> voterList = getAll();
+        for (Voter voter : voterList) {
+            if (voter.getVoterName().equals(nama) && voter.getVoterPassword().equals(passwrod)) {
+                return voter.getVoterId();
+            }
+        }
+        return -1;
+    }
 }

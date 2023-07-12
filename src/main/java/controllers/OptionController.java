@@ -38,6 +38,7 @@ public class OptionController {
     public String displayOptionsToVoter(@PathVariable("id") int pollId,Model model) {
         Poll poll = pollDAO.get(pollId);
         List<PollOption> pollOptions = optionDAO.getOptionByPollId(pollId);
+        System.out.println(pollOptions);
         model.addAttribute("poll",poll);
         model.addAttribute("options",pollOptions);
         return "optionsToVote";

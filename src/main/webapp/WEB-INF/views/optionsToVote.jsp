@@ -41,16 +41,17 @@
 <body>
 <div class="container">
     <h2 class="text-center mt-4">Vote for Poll: ${poll.pollName}</h2>
-    <form action="/vote" method="post">
+    <form action="/voteCount/addVote" method="post">
         <div class="form-group">
             <label for="selectedOption">Select Option:</label>
             <select class="form-control" id="selectedOption" name="selectedOption">
                 <c:forEach items="${options}" var="option">
-                    <option value="${option.optionId}">${option.optionName}</option>
+                    <option value=${option.optionId}>${option.optionName}</option>
                 </c:forEach>
             </select>
+            <input type="hidden" value="${poll.pollId}" name="pollId">
         </div>
-        <input type="hidden" name="pollId" value="${pollId}">
+        <input type="number" name="pollId" value="${pollId}" hidden>
         <button type="submit" class="btn btn-primary">Vote</button>
     </form>
 </div>

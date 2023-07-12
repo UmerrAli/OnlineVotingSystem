@@ -1,10 +1,19 @@
 package Authentication;
 
+import DAO.VoterDAO;
+import Models.Voter;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+import java.util.List;
+
+@Component
 public class Authentication {
-    public static String authenticate(HttpServletRequest request) {
+    @Autowired
+    private VoterDAO voterDAO;
+    public  String authenticate(HttpServletRequest request) {
         HttpSession session = request.getSession();
         String username = (String) session.getAttribute("username");
         String password = (String) session.getAttribute("password");
@@ -19,7 +28,12 @@ public class Authentication {
             }
         }
         if (role.equals("voter")) {
-//            TODO
+            List<Voter> voterList = voterDAO.getAll();
+            for (Voter voter : voterList) {
+                if (voter.getVoterName().equals(username) && voter.getVoterPassword().equals(password)) {
+                    return "voter";
+                }
+            }
         }
         return "not authenticated";
     }
