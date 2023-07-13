@@ -1,5 +1,6 @@
 package Authentication;
 
+import DAO.VoteCountDAO;
 import DAO.VoterDAO;
 import Models.Voter;
 import jakarta.servlet.http.HttpServletRequest;
@@ -13,6 +14,8 @@ import java.util.List;
 public class Authentication {
     @Autowired
     private VoterDAO voterDAO;
+    @Autowired
+    private VoteCountDAO voteCountDAO;
     public  String authenticate(HttpServletRequest request) {
         HttpSession session = request.getSession();
         String username = (String) session.getAttribute("username");

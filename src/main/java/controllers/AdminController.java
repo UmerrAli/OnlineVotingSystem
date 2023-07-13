@@ -23,29 +23,31 @@ public class AdminController {
     private Authentication authentication;
 
     @RequestMapping("/login")
-    public String loginAdmin(){
+    public String loginAdmin() {
         return "adminLogin";
     }
-    @RequestMapping ("/home")
-    public String home(HttpServletRequest request,Model model){
-        if(authentication.authenticate(request).equals("admin")) {
+
+    @RequestMapping("/home")
+    public String home(HttpServletRequest request, Model model) {
+        if (authentication.authenticate(request).equals("admin")) {
             List<Poll> polls = pollDAO.getAll();
-            model.addAttribute("polls",polls);
+            model.addAttribute("polls", polls);
             return "adminHomePage";
         }
         return "redirect:login";
     }
+
     @RequestMapping("/handleForm")
-    public String formHandler(@RequestParam("username") String username, @RequestParam("password") String password, Model model , HttpServletRequest request){
+    public String formHandler(@RequestParam("username") String username, @RequestParam("password") String password, Model model, HttpServletRequest request) {
         HttpSession session = request.getSession();
-        session.setAttribute("username",username);
-        session.setAttribute("password",password);
-        session.setAttribute("role","admin");
-        //Can also save admin to database
+        session.setAttribute("username", username);
+        session.setAttribute("password", password);
+        session.setAttribute("role", "admin");
         return "redirect:/admin/home";
     }
+
     @RequestMapping("/logout")
-    public String formHandler(HttpServletRequest request){
+    public String formHandler(HttpServletRequest request) {
         HttpSession session = request.getSession();
         session.removeAttribute("username");
         session.removeAttribute("password");
