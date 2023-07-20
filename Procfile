@@ -1,1 +1,1 @@
-web: java -jar Online-Voting-System.jar
+web: java $JAVA_OPTS -jar target/dependency/webapp-runner.jar --port $PORT target/*.war
