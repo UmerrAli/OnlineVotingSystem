@@ -20,8 +20,8 @@
     <bean class="org.springframework.jdbc.datasource.DriverManagerDataSource" name="dataSource">
         <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
         <property name="username" value="root"/>
-        <property name="url" value="jdbc:mysql://localhost:3306/onlinevotingsystem"/>
-        <property name="password" value="umer8080"/>
+        <property name="url" value="z80sz2.stackhero-network.com:3306/root"/>
+        <property name="password" value="iIsZbnnCPzanEI8fLNBcGx52wkJcnNCf"/>
     </bean>
 
     <bean class="org.springframework.orm.hibernate5.LocalSessionFactoryBean" name="localSessionFactoryBean">
