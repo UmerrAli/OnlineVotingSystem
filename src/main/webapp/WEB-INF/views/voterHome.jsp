@@ -65,9 +65,14 @@
 <%--                <td>${poll.voted ? 'Voted' : 'Not Voted'}</td>--%>
                 <td></td>
                 <td>
-<%--                    <c:if test="${not poll.voted}">--%>
-                        <a class="btn btn-primary" href="/pollOption/toVote/${poll.pollId}">Vote</a>
-<%--                    </c:if>--%>
+                    <c:choose>
+                        <c:when test="${poll.status}">
+                            <a class="btn btn-primary" href="/pollOption/toVote/${poll.pollId}">Vote</a>
+                        </c:when>
+                        <c:otherwise>
+                            <a class="btn btn-primary disabled" disabled="disabled" href="/pollOption/toVote/${poll.pollId}">Vote</a>
+                        </c:otherwise>
+                    </c:choose>
                 </td>
             </tr>
         </c:forEach>
