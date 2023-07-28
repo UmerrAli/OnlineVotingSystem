@@ -9,6 +9,15 @@ public class Poll implements Models {
     private String pollName;
     private boolean status;
     private String Winner;
+    private boolean isVoted;
+
+    public boolean isVoted() {
+        return isVoted;
+    }
+
+    public void setVoted(boolean voted) {
+        isVoted = voted;
+    }
 
     public int getPollId() {
         return pollId;

@@ -62,11 +62,19 @@
                 <td>${poll.pollName}</td>
                 <td><c:if test="${not empty poll.winner}">${poll.winner}</c:if><c:if test="${empty poll.winner}">N/A</c:if></td>
                 <td>${poll.status ? 'Active' : 'InActive'}</td>
-<%--                <td>${poll.voted ? 'Voted' : 'Not Voted'}</td>--%>
-                <td></td>
                 <td>
                     <c:choose>
-                        <c:when test="${poll.status}">
+                        <c:when test="${poll.voted}">
+                            <p>Voted<p>
+                        </c:when>
+                        <c:otherwise>
+                            <p>Not Voted<p>
+                        </c:otherwise>
+                    </c:choose>
+                </td>
+                <td>
+                    <c:choose>
+                        <c:when test="${(poll.status)and(not poll.voted)}">
                             <a class="btn btn-primary" href="/pollOption/toVote/${poll.pollId}">Vote</a>
                         </c:when>
                         <c:otherwise>

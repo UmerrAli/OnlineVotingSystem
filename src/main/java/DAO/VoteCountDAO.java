@@ -17,6 +17,8 @@ public class VoteCountDAO {
     private HibernateTemplate hibernateTemplate;
     @Autowired
     private OptionDAO optionDAO;
+    @Autowired
+    private VoteCountDAO voteCountDAO;
     @Transactional
     public void save(Models models) {
         VoteCount poll = (VoteCount) models;
@@ -40,7 +42,7 @@ public class VoteCountDAO {
     public int findMostFrequent(List<Integer> list)
     {
         int maxCount = 0;
-        int index = -1; // sentinels
+        int index = -1;
         for (int i = 0; i < list.size(); i++) {
             int count = 1;
             for (int j = i + 1; j < list.size(); j++) {
@@ -53,5 +55,14 @@ public class VoteCountDAO {
             }
         }
         return list.get(index);
+    }
+    public boolean voted(int pollId,int voterId){
+        List<VoteCount> voteCounts = voteCountDAO.getAll();
+        for(VoteCount voteCount:voteCounts){
+            if(voteCount.getPollId()==pollId && voteCount.getVoterId()==voterId){
+                return true;
+            }
+        }
+        return false;
     }
 }
