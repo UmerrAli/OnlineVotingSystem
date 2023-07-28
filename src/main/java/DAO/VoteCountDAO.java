@@ -16,8 +16,6 @@ public class VoteCountDAO {
     @Autowired
     private HibernateTemplate hibernateTemplate;
     @Autowired
-    private VoteCountDAO voteCountDAO;
-    @Autowired
     private OptionDAO optionDAO;
     @Transactional
     public void save(Models models) {
@@ -46,7 +44,7 @@ public class VoteCountDAO {
         for (int i = 0; i < list.size(); i++) {
             int count = 1;
             for (int j = i + 1; j < list.size(); j++) {
-                if (list.get(i) == list.get(j))
+                if (list.get(i).equals(list.get(j)))
                     count++;
             }
             if (count > maxCount) {

@@ -25,7 +25,7 @@ public class VoterController {
     private Authentication authentication;
 
     @RequestMapping("/handleLogin")
-    public String handleLoginForm(Model     model,HttpServletRequest request,@RequestParam("username") String username, @RequestParam("password") String password) {
+    public String handleLoginForm(HttpServletRequest request,@RequestParam("username") String username, @RequestParam("password") String password) {
         HttpSession session = request.getSession();
         session.setAttribute("username",username);
         session.setAttribute("password",password);

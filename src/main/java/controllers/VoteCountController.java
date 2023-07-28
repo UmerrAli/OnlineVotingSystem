@@ -4,7 +4,6 @@ import DAO.PollDAO;
 import DAO.VoteCountDAO;
 import Models.Poll;
 import Models.VoteCount;
-import Authentication.Authentication;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -34,12 +33,12 @@ public class VoteCountController {
     }
 
     @RequestMapping("/result/{pollId}")
-    public String result(@PathVariable("pollId") int pollId, HttpServletRequest request) {
+    public String result(@PathVariable("pollId") int pollId) {
         Poll poll = pollDAO.get(pollId);
         poll.setStatus(false);
         poll.setWinner(voteCountDAO.getWinner(pollId));
-        pollDAO.update(poll, pollId);
-        return "redirect:/voteCount/result";
+        pollDAO.update(poll);
+        return "redirect:/admin/home";
     }
 
 }

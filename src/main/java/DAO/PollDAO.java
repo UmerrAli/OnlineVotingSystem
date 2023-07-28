@@ -36,7 +36,7 @@ public class PollDAO{
         this.hibernateTemplate.delete(poll);
     }
     @Transactional
-    public void update(Models models,int id) {
+    public void update(Models models) {
         Poll poll = (Poll) models;
         this.hibernateTemplate.update(poll);
     }

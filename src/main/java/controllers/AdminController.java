@@ -38,7 +38,7 @@ public class AdminController {
     }
 
     @RequestMapping("/handleForm")
-    public String formHandler(@RequestParam("username") String username, @RequestParam("password") String password, Model model, HttpServletRequest request) {
+    public String formHandler(@RequestParam("username") String username, @RequestParam("password") String password, HttpServletRequest request) {
         HttpSession session = request.getSession();
         session.setAttribute("username", username);
         session.setAttribute("password", password);

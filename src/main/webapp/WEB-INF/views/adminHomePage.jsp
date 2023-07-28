@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page isELIgnored="false" %>
 <!DOCTYPE html>
 <html>
@@ -87,8 +87,16 @@
                 </td>
                 <td>${poll.winner}</td>
                 <td>
-                    <a class="btn btn-primary btn-sm add-pollOption-btn" href="/pollOption/add/${poll.pollId}">Add Options</a>
-                    <a class="btn btn-primary btn-sm" href="/voteCount/result/${poll.pollId}">Calculate Result and Inactivate</a>
+                    <c:choose>
+                        <c:when test="${poll.status}">
+                            <a class="btn btn-primary btn-sm add-pollOption-btn" href="/pollOption/add/${poll.pollId}">Add Options</a>
+                            <a class="btn btn-primary btn-sm" href="/voteCount/result/${poll.pollId}">Calculate Result and Inactivate</a>
+                        </c:when>
+                        <c:otherwise>
+                            <a class="btn btn-primary btn-sm disabled" href="#" disabled="disabled">Add Options</a>
+                            <a class="btn btn-primary btn-sm disabled" href="#" disabled="disabled">Calculate Result and Inactivate</a>
+                        </c:otherwise>
+                    </c:choose>
                     <a class="btn btn-danger btn-sm" href="/poll/deletePoll/${poll.pollId}">Delete</a>
                 </td>
             </tr>

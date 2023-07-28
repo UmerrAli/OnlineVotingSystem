@@ -30,7 +30,7 @@ public class OptionDAO {
     }
 
     public Object get(int id) {
-        return (PollOption) this.hibernateTemplate.get(PollOption.class, id);
+        return this.hibernateTemplate.get(PollOption.class, id);
     }
 
     public List<PollOption> getOptionByPollId(int pollId) {

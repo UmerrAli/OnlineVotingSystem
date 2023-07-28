@@ -1,8 +1,6 @@
 package Models;
 
 import javax.persistence.*;
-import java.util.List;
-
 @Entity
 public class Poll implements Models {
     @Id
