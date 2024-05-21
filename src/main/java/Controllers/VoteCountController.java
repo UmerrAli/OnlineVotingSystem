@@ -1,5 +1,4 @@
-package controllers;
-
+package Controllers;
 import DAO.PollDAO;
 import DAO.VoteCountDAO;
 import Models.Poll;
@@ -14,11 +13,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @RequestMapping("voteCount")
 public class VoteCountController {
+	
     @Autowired
     private VoteCountDAO voteCountDAO;
+    
     @Autowired
     private PollDAO pollDAO;
-
 
     @RequestMapping("/addVote")
     public String addVote(@RequestParam("selectedOption") int selectedOptionId, @RequestParam("pollId") String pollIdString, HttpServletRequest request) {
@@ -40,6 +40,5 @@ public class VoteCountController {
         pollDAO.update(poll);
         return "redirect:/admin/home";
     }
-
 }
 

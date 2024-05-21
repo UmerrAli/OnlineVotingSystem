@@ -25,21 +25,20 @@
 <body>
 <div class="container">
   <h2>Admin Login</h2>
-  <form action="/admin/handleForm" method="post">
+  <form action="/Online-Voting-System/admin/handleForm" method="post">
     <div class="form-group">
       <label for="adminUsername">Username:</label>
-      <input type="text" class="form-control" id="adminUsername" placeholder="Enter admin username" required name="username">
+      <input autocomplete="off" type="text" class="form-control" id="adminUsername" placeholder="Enter admin username" required name="username">
     </div>
     <div class="form-group">
       <label for="adminPassword">Admin Password:</label>
-      <input type="password" class="form-control" id="adminPassword" placeholder="Enter admin password" required name="password">
+      <input autocomplete="off" type="password" class="form-control" id="adminPassword" placeholder="Enter admin password" required name="password">
     </div>
     <br>
     <button type="submit" class="btn btn-primary btn-block">Login</button>
-    <a href="/voter/login" class="btn btn-primary btn-block">Login as Voter</a>
-  </form>
+    <a href="/Online-Voting-System/voter/login" class="btn btn-primary btn-block">Login as Voter</a>
+   </form>
 </div>
-
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
 </html>

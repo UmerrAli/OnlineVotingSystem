@@ -10,48 +10,39 @@
         body {
             background-color: #f8f9fa;
         }
-
         .container {
             max-width: 800px;
             margin: 0 auto;
             margin-top: 50px;
         }
-
         h2 {
             text-align: center;
             margin-bottom: 30px;
         }
-
         .btn-primary {
             background-color: #007bff;
             border-color: #007bff;
         }
-
         .btn-primary:hover {
             background-color: #0069d9;
             border-color: #0062cc;
         }
-
         .manage-voter-button {
             margin-bottom: 20px;
         }
-
         .table th,
         .table td {
             vertical-align: middle;
         }
-
         .table th:last-child,
         .table td:last-child {
             text-align: center;
         }
-
         .table .btn {
             margin-right: 5px;
             padding: 0.375rem 0.75rem;
             font-size: 14px;
         }
-
         .add-polls-button {
             margin-top: 20px;
             float: right;
@@ -61,7 +52,7 @@
 <body>
 <div class="container">
     <h2>Admin Home</h2>
-    <a href="/voter/displayAll" class="btn btn-primary manage-voter-button">Manage Voters</a>
+    <a href="/Online-Voting-System/voter/displayAll" class="btn btn-primary manage-voter-button">Manage Voters</a>
     <table class="table table-striped" style="margin-bottom: 30px;">
         <thead>
         <tr>
@@ -89,23 +80,22 @@
                 <td>
                     <c:choose>
                         <c:when test="${poll.status}">
-                            <a class="btn btn-primary btn-sm add-pollOption-btn" href="/pollOption/add/${poll.pollId}">Add Options</a>
-                            <a class="btn btn-primary btn-sm" href="/voteCount/result/${poll.pollId}">Calculate Result and Inactivate</a>
+                            <a class="btn btn-primary btn-sm add-pollOption-btn" href="/Online-Voting-System/pollOption/add/${poll.pollId}">Add Options</a>
+                            <a class="btn btn-primary btn-sm" href="/Online-Voting-System/voteCount/result/${poll.pollId}">Calculate Result and Inactivate</a>
                         </c:when>
                         <c:otherwise>
                             <a class="btn btn-primary btn-sm disabled" href="#" disabled="disabled">Add Options</a>
                             <a class="btn btn-primary btn-sm disabled" href="#" disabled="disabled">Calculate Result and Inactivate</a>
                         </c:otherwise>
                     </c:choose>
-                    <a class="btn btn-danger btn-sm" href="/poll/deletePoll/${poll.pollId}">Delete</a>
+                    <a class="btn btn-danger btn-sm" href="/Online-Voting-System/poll/deletePoll/${poll.pollId}">Delete</a>
                 </td>
             </tr>
         </c:forEach>
         </tbody>
     </table>
-    <a href="/poll/add" class="btn btn-primary add-polls-button">Add More Polls</a>
+    <a href="/Online-Voting-System/poll/add" class="btn btn-primary add-polls-button">Add More Polls</a>
 </div>
-
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
 </html>

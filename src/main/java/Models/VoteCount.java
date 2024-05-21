@@ -10,8 +10,11 @@ public class VoteCount implements Models {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int voteCountId;
+    
     private int selectedOptionId;
+    
     private int pollId;
+    
     private int voterId;
 
     public int getVoteCountId() {
@@ -21,6 +24,7 @@ public class VoteCount implements Models {
     public void setVoteCountId(int voteCountId) {
         this.voteCountId = voteCountId;
     }
+    
     public int getSelectedOptionId() {
         return selectedOptionId;
     }

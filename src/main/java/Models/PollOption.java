@@ -1,12 +1,13 @@
 package Models;
-
 import javax.persistence.*;
 
 @Entity
-public class PollOption implements Models{
+public class PollOption implements Models {
+	
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int optionId;
+    
     private String optionName;
 
     private int pollId;

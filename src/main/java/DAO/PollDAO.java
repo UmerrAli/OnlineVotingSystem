@@ -1,18 +1,15 @@
 package DAO;
-
 import Models.Models;
 import Models.Poll;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.stereotype.Component;
-
-
 import javax.transaction.Transactional;
 import java.util.List;
 
-
 @Component
 public class PollDAO{
+	
     @Autowired
     private HibernateTemplate hibernateTemplate;
 
@@ -35,10 +32,10 @@ public class PollDAO{
         Poll poll = (Poll) this.hibernateTemplate.load(Poll.class, id);
         this.hibernateTemplate.delete(poll);
     }
+    
     @Transactional
     public void update(Models models) {
         Poll poll = (Poll) models;
         this.hibernateTemplate.update(poll);
     }
-
 }

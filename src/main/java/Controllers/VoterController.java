@@ -1,5 +1,4 @@
-package controllers;
-
+package Controllers;
 import Authentication.Authentication;
 import DAO.PollDAO;
 import DAO.VoteCountDAO;
@@ -18,12 +17,16 @@ import java.util.List;
 @Controller
 @RequestMapping("/voter")
 public class VoterController {
+	
     @Autowired
     private VoterDAO voterDAO;
+    
     @Autowired
     private PollDAO pollDao;
+    
     @Autowired
     private Authentication authentication;
+    
     @Autowired
     VoteCountDAO voteCountDAO;
 
@@ -36,6 +39,7 @@ public class VoterController {
         session.setAttribute("voterId",voterDAO.getVoterId(username,password));
         return "redirect:/voter/home";
     }
+    
     @RequestMapping("/home")
     public String Home(Model model,HttpServletRequest request) {
         if(authentication.authenticate(request).equals("voter")){

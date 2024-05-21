@@ -1,5 +1,4 @@
-package controllers;
-
+package Controllers;
 import DAO.OptionDAO;
 import DAO.PollDAO;
 import Models.PollOption;
@@ -16,10 +15,13 @@ import java.util.List;
 @Controller
 @RequestMapping("/pollOption")
 public class OptionController {
+	
     @Autowired
     OptionDAO optionDAO;
+    
     @Autowired
     PollDAO pollDAO;
+    
     @RequestMapping("/add/{id}")
     public String addOptionPage(@PathVariable("id") int id,Model model) {
         Poll poll = pollDAO.get(id);
@@ -28,12 +30,14 @@ public class OptionController {
         model.addAttribute("options",pollOptions);
         return "addOption";
     }
+    
     @RequestMapping("/handleForm")
     public String addOptionHandleForm(@ModelAttribute PollOption pollOption, @RequestParam("pollId") int id) {
         pollOption.setPollId(id);
         optionDAO.save(pollOption);
         return "redirect:add/"+id;
     }
+    
     @RequestMapping("/toVote/{id}")
     public String displayOptionsToVoter(@PathVariable("id") int pollId,Model model) {
         Poll poll = pollDAO.get(pollId);

@@ -1,12 +1,13 @@
 package Models;
-
 import javax.persistence.*;
 
 @Entity
 public class Voter implements Models {
+	
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int voterId;
+    
     private String voterName;
 
     private String voterPassword;

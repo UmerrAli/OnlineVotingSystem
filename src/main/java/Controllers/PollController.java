@@ -1,5 +1,4 @@
-package controllers;
-
+package Controllers;
 import Authentication.Authentication;
 import DAO.PollDAO;
 import Models.Poll;
@@ -13,8 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/poll")
 public class PollController {
+	
     @Autowired
     private PollDAO pollDAO;
+    
     @Autowired
     private Authentication authentication;
 
@@ -25,6 +26,7 @@ public class PollController {
         }
         return "redirect:/admin/login";
     }
+    
     @RequestMapping("/handleForm")
     public String addPollHandleForm(@ModelAttribute Poll poll) {
         poll.setStatus(true);
@@ -32,6 +34,7 @@ public class PollController {
         pollDAO.save(poll);
         return "redirect:/admin/home";
     }
+    
     @RequestMapping("/deletePoll/{id}")
     public String deletePoll(@PathVariable("id") int id, HttpServletRequest request) {
         if(authentication.authenticate(request).equals("admin")){
@@ -40,5 +43,4 @@ public class PollController {
         }
         return "redirect:/admin/login";
     }
-
 }

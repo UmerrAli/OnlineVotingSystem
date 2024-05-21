@@ -5,13 +5,12 @@
        xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-<context:component-scan base-package="controllers"/>
+<context:component-scan base-package="Controllers"/>
 <context:component-scan base-package="DAO"/>
 <context:component-scan base-package="Models"/>
 <context:component-scan base-package="Authentication"/>
 
     <tx:annotation-driven/>
-
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" name="viewResolver">
         <property name="prefix" value="/WEB-INF/views/"/>
         <property name="suffix" value=".jsp"/>
@@ -53,5 +52,5 @@
     </bean>
 
     <bean class="org.springframework.jdbc.core.JdbcTemplate" name="jdbcTemplate" p:dataSource-ref="dataSource"/>
-
+    
 </beans>

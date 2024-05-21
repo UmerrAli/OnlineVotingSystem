@@ -1,14 +1,19 @@
 package Models;
-
 import javax.persistence.*;
+
 @Entity
 public class Poll implements Models {
+	
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int pollId;
+    
     private String pollName;
+    
     private boolean status;
+    
     private String Winner;
+    
     private boolean isVoted;
 
     public boolean isVoted() {
@@ -50,5 +55,4 @@ public class Poll implements Models {
     public void setWinner(String winner) {
         Winner = winner;
     }
-
 }

@@ -1,5 +1,4 @@
 package DAO;
-
 import Models.Models;
 import Models.PollOption;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +13,7 @@ import java.util.List;
 
 @Component
 public class OptionDAO {
+	
     @Autowired
     private HibernateTemplate hibernateTemplate;
 
@@ -25,7 +25,8 @@ public class OptionDAO {
         PollOption pollOption = (PollOption) models;
         this.hibernateTemplate.save(pollOption);
     }
-    public List<PollOption> getAll(){
+    
+    public List<PollOption> getAll() {
         return this.hibernateTemplate.loadAll(PollOption.class);
     }
 
@@ -46,13 +47,8 @@ public class OptionDAO {
         });
     }
 
-
     public void delete(int id) {
         PollOption pollOption = (PollOption) this.hibernateTemplate.load(PollOption.class, id);
         this.hibernateTemplate.delete(pollOption);
-    }
-
-    public void update(int id, Models models) {
-        //TODO
     }
 }
