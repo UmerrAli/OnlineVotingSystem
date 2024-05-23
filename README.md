@@ -43,4 +43,5 @@ Note: You don't need to create tables as **Hibernate** will create and manage al
 - Improve the UI of the project.
 - Add a logout button.
 - Add a home button.
+- Handle exceptions such as poll draw situations.
 - Containerize the application using Docker.
