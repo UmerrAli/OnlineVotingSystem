@@ -1,71 +1,46 @@
 
-Note: Contact me for any issue
+# Online Voting System - Poll Genie
 
-# Online Voting System - PollGenie
-Spring MVC(Java) application for conducting and managing online elections.
+The Online Voting System, built with Java using Spring MVC, is a web-based software that allows administrators to manage elections and enables voters to participate in polls.
 
+## Demo
 
+https://github.com/UmerrAli/OnlineVotingSystem/assets/106273026/7c7e80de-23da-4d77-b7c9-1cba2f73ecad
 
+## Run Locally
+To run this project on your system you need:
+- IDE (Eclipse or NetBeans or IntelliJ IDEA Ultimate)
+- Java 20
+- Tomcat 10
+- MYSQL
 
-## Technologies Used
-    1. Java 20
-    2. Spring MVC
-    3. Hibernate
-    4. Tomcat 10
-    5. MySQL
-    6. JSP and JSTL
-    7. HTML CSS and Bootstrap
-    8. Maven
-    9. IntelliJ IDEA Ultimate.
+### Steps
+1. Clone the project.
+2. Install all dependencies using Maven.
+3. Create a database in MYSQL using this statement "CREATE DATABASE onlinevotingsystem".
+4. Configure dataSource Bean in file dispacher-servlet.xml according to your database (username and password)
+5. Configure Tomcat server with Eclipse and start the server.
+6. After successfully deploying on your local Tomcat server visit this link in your browser http://localhost:8080/Online-Voting-System/
+7. Use admin as both username and password to login as admin.
+
+Note: You don't need to create tables as **Hibernate** will create and manage all tables in database. 
 
 ## Features
 ### Admin
-- Admin can register new voters.
-- Admin can add new polls(Election).
-- Admin can create Multiple polls.
-- Admin can add options(candidates) for each poll.
-- Admin can delete or anncounce result for poll.
+- **Register New Voters**: Admins can register new voters with the system.
+- **Create New Polls (Elections):** Admins can create new polls for various elections.
+- **Manage Multiple Polls:** Admins can manage multiple polls simultaneously.
+- **Add Candidates for Each Poll:** Admins can specify and manage candidates for each poll.
+- **Delete Polls or Announce Results:** Admins can delete polls or announce the results once voting is complete.
 
-### Voter 
-- Voter can login by username and password provided by admin.
-- Voter can first chose election and then select one option(candidate) from the list of candidates.
-- Voter can only vote if result is not anncounced.
-- Voter can see winner if result is anncounced.
+### Voter
+- **Login:** Voters can log in using the username and password provided by the admin.
+- **Select Election and Vote:** Voters can choose an election and select a candidate from the list.
+- **Voting Restriction:** Voters can only vote if the results have not been announced.
+- **View Election Results:** Voters can view the winner once the results are announced.
 
-
-
-
-### Admin - Screenshots
-
-Admin Home:
-![AdminHome](https://github.com/UmerrAli/Poll-Genie/assets/106273026/81d2b024-4687-48aa-8dd1-80f5d711cad4)
-
-Voters List:
-![VoterList](https://github.com/UmerrAli/Poll-Genie/assets/106273026/fbf21803-913e-4ca8-b6cd-fa40b530de4c)
-
-Add Options:
-![addOptions](https://github.com/UmerrAli/Poll-Genie/assets/106273026/10137685-956f-441b-8985-ecf1e2a7207a)
-
-
-### Voter - Screenshots
-Voter Login:
-![VoterLogin](https://github.com/UmerrAli/Poll-Genie/assets/106273026/44d79ecc-9b57-4a6f-877d-e968939584db)
-
-Voter Home:
-![VoterHome](https://github.com/UmerrAli/Poll-Genie/assets/106273026/fd2f9bd9-fdb2-4c10-bc7b-0176102f6773)
-
-Vote Page:
-![VoterVote](https://github.com/UmerrAli/Poll-Genie/assets/106273026/943ec667-dc40-4f82-b663-682ba5da7e2b)
-## Run Locally
-
-- Clone the project
-- You can use any IDE
-- Use Java17 or above
-- Tomcat 10 or above
-- Install all dependencies using Maven.
-- Install MYSQL
-- Configure dataSource Bean in file dispacher-servlet.xml according to your database.
-- After deploying on your local Tomcat server visit this link in your browser http://localhost:8080/admin/login 
-- Use **admin** as both username and password to login as admin.
-- To login as voter visit this link http://localhost:8080/voter/login
-
+## Improvements
+- Improve the UI of the project.
+- Add a logout button.
+- Add a home button.
+- Containerize the application using Docker.
